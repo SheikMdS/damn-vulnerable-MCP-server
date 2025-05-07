@@ -6,7 +6,25 @@ from fastapi import FastAPI
 
 # Create a vulnerable MCP server for Challenge 1: Basic Prompt Injection with SSE support
 class Challenge1Server:
+    """
+    Challenge1Server facilitates the execution of a FastAPI application, managing resources and tools.
+    Parameters:
+        None
+    Processing Logic:
+        - Changes the default port to 9001 to avoid conflicts.
+        - Adds resources with sensitive information accessible internally.
+        - Provides functionality to retrieve and display user-specific notes and information.
+    """
     def __init__(self):
+        """Initialize the class with resources and tools for FastAPI application.
+        Parameters:
+            None
+        Returns:
+            None
+        Processing Logic:
+            - Changes the default port to 9001 to avoid conflicts.
+            - Adds resources with sensitive information accessible internally.
+            - Provides functionality to retrieve and display user-specific notes and information."""
         self.name = "Challenge 1 - Basic Prompt Injection"
         self.port = 9001  # Changed from 8001 to avoid conflicts
         self.mcp = FastMCP(self.name)
