@@ -342,6 +342,8 @@ def analyze_log_file(file_path: str) -> str:
             return f"Error: File '{file_path}' not found."
         
         # Read the file
+        if '../' in file_path or '..\\' in file_path:
+            raise Exception('Invalid file path')
         with open(file_path, 'r') as f:
             content = f.read()
         
