@@ -118,6 +118,8 @@ def read_upload(upload_name: str) -> str:
     try:
         filepath = f"/tmp/dvmcp_challenge6/user_uploads/{upload_name}"
         if os.path.exists(filepath):
+            if "../" in filepath or "..\\" in filepath:
+                raise Exception("Invalid file path")
             with open(filepath, "r") as f:
                 return f.read()
         else:
@@ -143,6 +145,8 @@ def upload_and_process_document(document_name: str, content: str) -> str:
     try:
         # Save the uploaded document
         filepath = f"/tmp/dvmcp_challenge6/user_uploads/{document_name}"
+        if "../" in filepath or "..\\" in filepath:
+            raise Exception("Invalid file path")
         with open(filepath, "w") as f:
             f.write(content)
         
